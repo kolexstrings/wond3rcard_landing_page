@@ -12,6 +12,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { useScrollToHash } from "@/hooks/use-scroll-to-hash";
+import { WhyWonderCardSection } from "@/components/sections/WhyWondercard";
 
 export default function HomePage() {
   useScrollToHash();
@@ -23,6 +24,7 @@ export default function HomePage() {
         <HeroSection />
         <StatsSection />
         <FeaturesSection />
+        <WhyWonderCardSection />
         <HowItWorksSection />
         <DesignShowcaseSection />
         <ShareCardsSection />

@@ -1,99 +1,63 @@
 import { motion } from "framer-motion";
-import { 
-  Palette, 
-  Share, 
-  RefreshCcw, 
-  Link2, 
-  BarChart2, 
-  Globe 
-} from "lucide-react";
-
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  index: number;
-}
-
-function FeatureCard({ icon, title, description, index }: FeatureCardProps) {
-  return (
-    <motion.div 
-      className="bg-white rounded-xl p-6 shadow-lg"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 * index }}
-    >
-      <div className="w-14 h-14 gradient-purple rounded-lg flex items-center justify-center mb-5">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <a href="#" className="text-purple-600 font-medium flex items-center">
-        Learn more 
-        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
-    </motion.div>
-  );
-}
+import customCard from "@assets/custom-card-design.png";
+import nfcCard from "@assets/nfc-card.png";
+import digitalIdentity from "@assets/digital-identity-mngt.png";
+import mobileApp from "@assets/mobile-app.png";
+import { FeatureCard } from "../Features/FeaturesCard";
 
 export function FeaturesSection() {
   const features = [
     {
-      icon: <Palette className="text-white text-2xl" />,
-      title: "Customizable Cards",
-      description: "Create visually stunning cards that match your brand with our easy-to-use editor. Choose colors, layouts, and more."
+      image: nfcCard,
+      title: "NFC-Enabled Smart Cards",
+      description:
+        "Utilize Near Field Communication for quick, contactless contact sharing during networking events such as meetings, workshops, and conferences—eliminating the hassle of manually saving contacts.",
     },
     {
-      icon: <Share className="text-white text-2xl" />,
-      title: "Share Instantly",
-      description: "Share your digital card via QR code, email, text message, or social media in just a few taps."
+      image: digitalIdentity,
+      title: "Digital Identity Management",
+      description:
+        "Streamline the creation and management of digital identities, reducing administrative burdens associated with traditional ID card management.",
     },
     {
-      icon: <RefreshCcw className="text-white text-2xl" />,
-      title: "Always Updated",
-      description: "Update your contact details or social links anytime. Recipients always see your latest information."
+      image: customCard,
+      title: "Custom Card Design",
+      description:
+        "Cards can be tailored to include your personal/business branding and specific role-based access features.",
     },
     {
-      icon: <Link2 className="text-white text-2xl" />,
-      title: "Social Integration",
-      description: "Connect all your social profiles and online presence in one place. Let people follow you where they prefer."
+      image: mobileApp,
+      title: "Mobile App",
+      description:
+        "Companion application for real-time updates and enhanced networking capabilities.",
     },
-    {
-      icon: <BarChart2 className="text-white text-2xl" />,
-      title: "Analytics",
-      description: "Track when your card is viewed, which links are clicked, and understand how people interact with your profile."
-    },
-    {
-      icon: <Globe className="text-white text-2xl" />,
-      title: "Multi-Profile Support",
-      description: "Create separate personal and business profiles. Share the right one for the right context."
-    }
   ];
 
   return (
-    <section id="features" className="py-20">
+    <section id="features" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Create, Share, Connect - All Digital</h2>
-          <p className="text-xl text-gray-600">Everything you need to replace traditional business cards with a modern digital solution.</p>
+          <h2 className="text-4xl font-bold mb-4">Our Features you can get</h2>
+          <div className="w-24 h-1 bg-purple-600 mx-auto rounded mb-6"></div>
+          <p className="text-xl text-gray-600">
+            Discover how Wond3rCard transforms identity management with
+            cutting-edge features designed for today's digital landscape.
+          </p>
         </motion.div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
           {features.map((feature, index) => (
-            <FeatureCard 
-              key={index} 
-              icon={feature.icon} 
-              title={feature.title} 
-              description={feature.description} 
+            <FeatureCard
+              key={index}
+              image={feature.image}
+              title={feature.title}
+              description={feature.description}
               index={index}
             />
           ))}
