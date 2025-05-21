@@ -5,8 +5,16 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "primary-gradient":
+          "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%)",
+        "primary-faded":
+          "linear-gradient(180deg, hsl(var(--primary) / 0.05) 0%, transparent 100%)",
+        "primary-subtle":
+          "radial-gradient(circle at top left, hsl(var(--primary) / 0.1), transparent)",
+      },
       fontFamily: {
-        spartan: ['"League Spartan"', "sans-serif"],
+        asap: ['"Asap"', "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

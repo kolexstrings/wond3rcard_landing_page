@@ -32,13 +32,13 @@ export function HeroSection() {
               >
                 Get Started
               </Button>
-              {/* <Button
+              <Button
                 size="lg"
                 variant="outline"
-                className="text-purple-700 border-purple-200 font-medium hover:bg-purple-50 transition duration-300"
+                className="text-purple-700 border-purple-200 font-medium hover:bg-purple-50 transition duration-300 rounded-full"
               >
                 See How It Works
-              </Button> */}
+              </Button>
             </div>
 
             {/* <div className="mt-8 flex items-center">

@@ -28,7 +28,7 @@ export default function HomePage() {
         <DesignShowcaseSection />
         <ShareCardsSection />
         <AnalyticsSection />
-        <WhyWonderCardSection />
+        {/* <WhyWonderCardSection /> */}
         <HowItWorksSection />
 
         <PricingSection />

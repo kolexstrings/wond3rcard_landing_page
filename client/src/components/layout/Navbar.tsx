@@ -37,7 +37,7 @@ export function Navbar() {
               <img
                 src={logo}
                 alt="Wond3rCard Logo"
-                className="h-10 w-auto mr-2"
+                className="h-7 w-auto mr-2"
               />
             </div>
           </div>
@@ -71,10 +71,13 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-purple-700 font-medium">
+            <Button
+              variant="ghost"
+              className="text-purple-700 font-medium rounded-full"
+            >
               Login
             </Button>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-full">
               Sign Up
             </Button>
           </div>
