@@ -15,30 +15,33 @@ export function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Your Digital Identity in{" "}
-              <span className="text-purple-600">One Card</span>
+              Revolutionize Your Identity{" "}
+              <span className="text-purple-600">
+                <br />
+                Management
+              </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-lg">
-              Share your contact details, social profiles, and more with a
-              simple tap or scan. No more paper cards.
+              Experience seamless, secure, and smart digital identity solutions
+              with Wond3rCard's NFC-enabled technology.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button
                 size="lg"
-                className="gradient-purple text-white font-medium shadow-lg hover:shadow-xl transition duration-300"
+                className="gradient-purple text-white font-medium shadow-lg hover:shadow-xl transition duration-300 rounded-full"
               >
                 Get Started
               </Button>
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 className="text-purple-700 border-purple-200 font-medium hover:bg-purple-50 transition duration-300"
               >
                 See How It Works
-              </Button>
+              </Button> */}
             </div>
 
-            <div className="mt-8 flex items-center">
+            {/* <div className="mt-8 flex items-center">
               <div className="flex -space-x-2">
                 <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-gray-200">
                   <svg
@@ -80,7 +83,7 @@ export function HeroSection() {
                   <span className="ml-2 text-gray-600">5.0 (2k+ reviews)</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div

@@ -51,7 +51,7 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -61,7 +61,7 @@ export function FeaturesSection() {
               index={index}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
