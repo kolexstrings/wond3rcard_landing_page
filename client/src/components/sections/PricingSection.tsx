@@ -109,7 +109,7 @@ export function PricingSection() {
     },
     {
       title: "Business",
-      price: "663",
+      price: "65",
       features: [
         { text: "Unlimited Digital Cards", included: true },
         { text: "Premium Customization", included: true },
