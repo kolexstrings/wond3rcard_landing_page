@@ -15,7 +15,7 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <motion.div
-      className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6"
+      className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-10 p-6 bg-white rounded-2xl shadow-xl max-w-4xl mx-auto"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -24,11 +24,11 @@ export function FeatureCard({
       <img
         src={image}
         alt={title}
-        className="w-40 h-40 object-contain rounded-xl shadow-lg"
+        className="w-64 h-64 object-contain rounded-xl"
       />
-      <div className="text-center md:text-left">
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600 text-lg">{description}</p>
+      <div className="text-center md:text-left max-w-xl">
+        <h3 className="text-4xl font-extrabold mb-4">{title}</h3>
+        <p className="text-gray-700 text-xl leading-relaxed">{description}</p>
       </div>
     </motion.div>
   );

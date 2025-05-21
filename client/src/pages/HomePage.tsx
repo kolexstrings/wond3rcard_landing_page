@@ -13,6 +13,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { useScrollToHash } from "@/hooks/use-scroll-to-hash";
 import { WhyWonderCardSection } from "@/components/sections/WhyWondercard";
+import NfcCardPricing from "@/components/sections/NfcCardPricing";
 
 export default function HomePage() {
   useScrollToHash();
@@ -22,15 +23,18 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
-        <StatsSection />
-        <FeaturesSection />
-        <WhyWonderCardSection />
-        <HowItWorksSection />
+        {/* <StatsSection /> */}
+        {/* <FeaturesSection /> */}
+
         <DesignShowcaseSection />
         <ShareCardsSection />
         <AnalyticsSection />
+        <WhyWonderCardSection />
+        <HowItWorksSection />
+
         <PricingSection />
-        <TestimonialsSection />
+        <NfcCardPricing />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
         <CTASection />
       </main>
