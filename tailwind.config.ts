@@ -14,7 +14,7 @@ export default {
           "radial-gradient(circle at top left, hsl(var(--primary) / 0.1), transparent)",
       },
       fontFamily: {
-        asap: ['"Asap"', "sans-serif"],
+        asap: ["Asap", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -34,7 +34,7 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="py-24 bg-white">
+    <section id="features" className="py-5 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
@@ -43,7 +43,7 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-4">Our Features you can get</h2>
+          <h2 className="text-4xl font-bold mb-4">Our Features</h2>
           <div className="w-24 h-1 bg-purple-600 mx-auto rounded mb-6"></div>
           <p className="text-xl text-gray-600">
             Discover how Wond3rCard transforms identity management with

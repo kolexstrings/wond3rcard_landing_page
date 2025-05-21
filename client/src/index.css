@@ -1,3 +1,4 @@
+@import url("https://fonts.cdnfonts.com/css/asap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,11 +54,11 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
