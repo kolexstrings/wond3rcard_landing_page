@@ -24,7 +24,7 @@ export default defineConfig(async () => {
       },
     },
     root: path.resolve(__dirname, "client"),
-    base: "/", // 👈 IMPORTANT for Vercel
+    base: "/",
     build: {
       outDir: path.resolve(__dirname, "dist"), // 👈 cleaner dist folder
       emptyOutDir: true,
