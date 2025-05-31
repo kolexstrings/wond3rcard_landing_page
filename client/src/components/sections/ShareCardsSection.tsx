@@ -337,7 +337,13 @@ export function ShareCardsSection() {
             </div>
 
             <div className="mt-10">
-              <Button className="gradient-purple text-white font-medium px-8 py-3 shadow-lg hover:shadow-xl transition duration-300">
+              <Button
+                className="gradient-purple text-white font-medium px-8 py-3 shadow-lg hover:shadow-xl transition duration-300"
+                onClick={() => {
+                  window.location.href =
+                    "https://wond3rcard-frontend.vercel.app/#/signUp";
+                }}
+              >
                 Start Sharing Now
               </Button>
             </div>

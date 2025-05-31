@@ -52,6 +52,10 @@ function PriceCard({
                 ? "gradient-purple text-white shadow-lg hover:shadow-xl transition duration-300"
                 : "border-2 border-purple-600 text-purple-600 hover:bg-purple-50 transition duration-300"
             }`}
+            onClick={() => {
+              window.location.href =
+                "https://wond3rcard-frontend.vercel.app/#/signUp";
+            }}
           >
             Get Started
           </Button>
@@ -132,7 +136,7 @@ export function PricingSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Choose Plan That’s Right For You
+            Choose Plan That's Right For You
           </h2>
           <p className="text-xl text-gray-600">
             Wond3rcard offers flexible pricing tailored to individuals,

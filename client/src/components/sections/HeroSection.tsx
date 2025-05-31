@@ -31,6 +31,10 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="gradient-purple text-white font-medium shadow-lg hover:shadow-xl transition duration-300 rounded-full"
+                onClick={() => {
+                  window.location.href =
+                    "https://wond3rcard-frontend.vercel.app/#/signUp";
+                }}
               >
                 Get Started
               </Button>

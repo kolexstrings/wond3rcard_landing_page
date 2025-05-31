@@ -145,10 +145,20 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   className="text-purple-700 font-medium justify-start"
+                  onClick={() => {
+                    window.location.href =
+                      "https://wond3rcard-frontend.vercel.app/#/login";
+                  }}
                 >
                   Login
                 </Button>
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-medium w-full">
+                <Button
+                  className="bg-purple-600 hover:bg-purple-700 text-white font-medium w-full"
+                  onClick={() => {
+                    window.location.href =
+                      "https://wond3rcard-frontend.vercel.app/#/signUp";
+                  }}
+                >
                   Sign Up
                 </Button>
               </div>

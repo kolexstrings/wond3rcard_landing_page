@@ -32,6 +32,10 @@ export function CTASection() {
               size="lg"
               variant="secondary"
               className="bg-white text-purple-700 hover:bg-gray-100 font-medium shadow-lg"
+              onClick={() => {
+                window.location.href =
+                  "https://wond3rcard-frontend.vercel.app/#/signUp";
+              }}
             >
               Create Your Free Card
             </Button>
