@@ -34,7 +34,7 @@ export function CTASection() {
               className="bg-white text-purple-700 hover:bg-gray-100 font-medium shadow-lg"
               onClick={() => {
                 window.location.href =
-                  "https://wond3rcard-frontend.vercel.app/#/signUp";
+                  "https://app.wond3rcard.com/#/minified:a3r";
               }}
             >
               Create Your Free Card

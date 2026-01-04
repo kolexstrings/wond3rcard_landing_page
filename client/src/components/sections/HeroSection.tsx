@@ -33,7 +33,7 @@ export function HeroSection() {
                 className="gradient-purple text-white font-medium shadow-lg hover:shadow-xl transition duration-300 rounded-full"
                 onClick={() => {
                   window.location.href =
-                    "https://wond3rcard-frontend.vercel.app/#/signUp";
+                    "https://app.wond3rcard.com/#/minified:a3r";
                 }}
               >
                 Get Started

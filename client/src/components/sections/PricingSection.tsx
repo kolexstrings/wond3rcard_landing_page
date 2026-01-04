@@ -54,7 +54,7 @@ function PriceCard({
             }`}
             onClick={() => {
               window.location.href =
-                "https://wond3rcard-frontend.vercel.app/#/signUp";
+                "https://app.wond3rcard.com/#/minified:a3r";
             }}
           >
             Get Started

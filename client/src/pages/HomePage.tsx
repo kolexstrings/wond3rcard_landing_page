@@ -29,7 +29,7 @@ export default function HomePage() {
 
         <PricingSection />
         <NfcCardPricing />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
         <CTASection />
       </main>
