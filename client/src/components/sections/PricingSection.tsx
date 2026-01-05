@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check, X } from "lucide-react";
+import { fetchPricingTiers } from "@/lib/api";
+
+function formatPrice(price: number): string {
+  return price.toLocaleString("en-US");
+}
 
 function PriceCard({
   title,
   price,
+  currencySymbol,
   features,
   popular = false,
   index,
 }: {
   title: string;
   price: string;
+  currencySymbol: string;
   features: Array<{ text: string; included: boolean }>;
   popular?: boolean;
   index: number;
@@ -34,7 +41,8 @@ function PriceCard({
       <div className="p-6">
         <h3 className="text-xl font-bold mb-4">{title}</h3>
         <div className="text-3xl font-bold mb-6">
-          ${price}{" "}
+          {currencySymbol}
+          {price}{" "}
           <span className="text-base font-normal text-gray-600">/month</span>
         </div>
 
@@ -84,11 +92,56 @@ export function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
     "monthly"
   );
+  const [currencySymbol, setCurrencySymbol] = useState("$");
+  const [pricingData, setPricingData] = useState<{
+    basic: { monthly: number; yearly: number };
+    premium: { monthly: number; yearly: number };
+    business: { monthly: number; yearly: number };
+  } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPricing = async () => {
+      try {
+        const response = await fetchPricingTiers();
+        const { tiers, selectedCurrency } = response.data;
+
+        const symbol =
+          tiers[0]?.monthly?.symbol || tiers[0]?.yearly?.symbol || "$";
+        setCurrencySymbol(symbol);
+
+        const tierMap: Record<string, { monthly: number; yearly: number }> = {};
+        tiers.forEach((tier: any) => {
+          tierMap[tier.name.toLowerCase()] = {
+            monthly: tier.monthly?.price ?? 0,
+            yearly: tier.yearly?.price ?? 0,
+          };
+        });
+
+        setPricingData({
+          basic: tierMap.basic || { monthly: 0, yearly: 0 },
+          premium: tierMap.premium || { monthly: 9, yearly: 90 },
+          business: tierMap.business || { monthly: 65, yearly: 650 },
+        });
+      } catch (error) {
+        console.error("Failed to load pricing:", error);
+        setPricingData({
+          basic: { monthly: 0, yearly: 0 },
+          premium: { monthly: 9, yearly: 90 },
+          business: { monthly: 65, yearly: 650 },
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPricing();
+  }, []);
 
   const pricingPlans = [
     {
       title: "Basic",
-      price: "0",
+      priceKey: "basic" as const,
       features: [
         { text: "1 Digital Card", included: true },
         { text: "Basic Customization", included: true },
@@ -100,7 +153,7 @@ export function PricingSection() {
     },
     {
       title: "Premium",
-      price: "9",
+      priceKey: "premium" as const,
       popular: true,
       features: [
         { text: "5 Digital Cards", included: true },
@@ -113,7 +166,7 @@ export function PricingSection() {
     },
     {
       title: "Business",
-      price: "65",
+      priceKey: "business" as const,
       features: [
         { text: "Unlimited Digital Cards", included: true },
         { text: "Premium Customization", included: true },
@@ -171,20 +224,31 @@ export function PricingSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <PriceCard
-              key={plan.title}
-              title={plan.title}
-              price={
-                billingPeriod === "yearly"
-                  ? (parseFloat(plan.price) * 10).toString()
-                  : plan.price
-              }
-              features={plan.features}
-              popular={plan.popular}
-              index={index}
-            />
-          ))}
+          {isLoading ? (
+            <div className="col-span-3 text-center py-12">
+              <p className="text-gray-600">Loading pricing...</p>
+            </div>
+          ) : (
+            pricingPlans.map((plan, index) => {
+              const price = pricingData
+                ? billingPeriod === "yearly"
+                  ? pricingData[plan.priceKey].yearly
+                  : pricingData[plan.priceKey].monthly
+                : 0;
+
+              return (
+                <PriceCard
+                  key={plan.title}
+                  title={plan.title}
+                  price={formatPrice(price)}
+                  currencySymbol={currencySymbol}
+                  features={plan.features}
+                  popular={plan.popular}
+                  index={index}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </section>
